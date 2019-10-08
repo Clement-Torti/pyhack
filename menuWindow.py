@@ -1,5 +1,5 @@
 from window import Window
-from utils import log
+import utils
 import curses
 
 '''
@@ -32,28 +32,14 @@ class Menu(Window):
         self.draw()
 
 
-    def move(self):
-        '''
-        when an option is selected by the user
-        '''
-        log("move called", self.stdscr)
-        if self.selectedOption == 0:
-            self.stdscr.addstr(0, 0, "option 1 selected")
-        elif self.selectedOption == 1:
-            self.stdscr.addstr(0, 0, "option 2 selected")
-        elif self.selectedOption == 2:
-            self.stdscr.addstr(0, 0, "option 3 selected")
-        else:
-            raise Exception('Unknown menu option')
-
-
     def setAction(self, c):
         if c == curses.KEY_DOWN:
             self.incOption()
         elif c == curses.KEY_UP:
             self.decOption()
         elif c == 10:
-            self.move()
+            return self.selectedOption
+
 
 
     def draw(self):
