@@ -16,7 +16,6 @@ class Game:
 
 		# create timer
 
-		self.draw()
 
 	# Map element generation
 
@@ -35,7 +34,5 @@ class Game:
 
 	def move(self, pos):
 		self.playerPos = pos
-
-	def draw(self):
 
 
